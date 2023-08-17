@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.06356ba0.css",
-    "main.js": "/static/js/main.f83597c9.js",
+    "main.js": "/static/js/main.a3b1f467.js",
     "static/media/food-tr.png": "/static/media/food-tr.5d500e577168a2667ec6.png",
     "static/media/food-tl.png": "/static/media/food-tl.0b17c1ae3486c3071f6d.png",
     "static/media/chefjames.jpg": "/static/media/chefjames.25b2020d380f80de2a8f.jpg",
     "static/media/logo-sm1.png": "/static/media/logo-sm1.02f351e09394a2a6e713.png",
     "index.html": "/index.html",
     "main.06356ba0.css.map": "/static/css/main.06356ba0.css.map",
-    "main.f83597c9.js.map": "/static/js/main.f83597c9.js.map"
+    "main.a3b1f467.js.map": "/static/js/main.a3b1f467.js.map"
   },
   "entrypoints": [
     "static/css/main.06356ba0.css",
-    "static/js/main.f83597c9.js"
+    "static/js/main.a3b1f467.js"
   ]
 }
