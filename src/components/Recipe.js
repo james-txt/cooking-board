@@ -51,19 +51,19 @@ const Recipe = () => {
 
 	return (
 	<div className="flex justify-center">	
-		<div className="justify-center rounded shadow-md bg-white max-lg:max-w-2xl lg:max-w-5xl mx-4 px-8 pt-8 my-12">
+		<div className="justify-center rounded border-stone-200 border shadow-md bg-white max-lg:max-w-2xl lg:max-w-5xl mx-4 px-8 pt-8 my-12">
 			{
 				recipe && (
 				<>
 					<h1 className="text-3xl font-medium text-rose-500 pb-6">{recipe.name}</h1>
 					<div className="flex flex-wrap gap-8 pb-8 items-center">
-						<img className="border-stone-900 border-1 rounded w-auto" loading="lazy"  src={recipe.picture} alt={recipe.name} />
+						<img className="rounded w-auto"  src={recipe.picture} alt={recipe.name} />
 						<div className="shrink-0">
 							<hr className="pb-6"></hr>
 							<h2 className="text-2xl font-medium text-rose-500 pb-4">Ingredients :</h2>
 								{ingredients.length > 0 &&
 									ingredients.map((item) => 
-									<li className="md:text-base lg:text-lg text-ellipsis">{item}</li>
+									<li className="md:text-base lg:text-lg pb-2 text-ellipsis">{item}</li>
 									)}
 						</div>
 
@@ -71,7 +71,7 @@ const Recipe = () => {
 							<h2 className="text-2xl font-medium text-rose-500 pb-4">Instructions :</h2>
 								{instructions.length > 0 &&
 										instructions.map((item) => 
-										<p className="md:text-base lg:text-lg text-ellipsis">{item}</p>
+										<p className="md:text-base lg:text-lg border shadow-sm shadow-stone-500 my-3 border-stone-300 p-3 text-ellipsis">{item}</p>
 										)}
 						</div>
 							{/*<h2 className="text-2xl font-medium text-rose-500 pb-4">Tags :</h2>*/}

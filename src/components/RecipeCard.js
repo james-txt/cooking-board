@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const RecipeCard = ({ recipe }) => {
   return (
     <div href="#" className="recipe-card">
       
       {" "}
       <Link to={`/recipe/${recipe.id}`}>
-        <img src={recipe.picture} alt={recipe.name} loading="lazy" />
+        <img src={recipe.picture} alt={recipe.name}/>
       </Link>{" "}
       
       <div id="recipe-description" className="container md:h-1/2 h-fit w-full">

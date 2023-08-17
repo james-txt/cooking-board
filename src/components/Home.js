@@ -39,18 +39,18 @@ const Home = () => {
         <img src={foodTL} img alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
         <img src={foodTR} img alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
       </div>
-      <div className="flex flex-nowrap justify-around text-neutral-700 mt-16 mb-6">
+      <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-24 mb-6">
         <h2 className="flex items-center text-2xl font-semibold">What are you craving?</h2>
       </div>
 
 
       {/* Search bar */}
-      <form id="searchbar" className="flex lg:w-2/5 md:w-1/2 items-center px-4 mb-12 relative mx-auto text-black" onSubmit={handleSubmit}>
+      <form id="searchbar" className="flex lg:w-2/5 w-3/4 md:w-1/2 items-center px-4 mb-12 relative mx-auto text-black" onSubmit={handleSubmit}>
         <input
           className="w-full border-2 border-stone-900 bg-white pr-10 rounded-lg text-md"
           type="text"
           name="search"
-          placeholder="Search recipes"
+          placeholder="Search recipes.."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -96,8 +96,12 @@ const Home = () => {
         <button className="tag" onClick={() => handleTagClick("Dairy")}>DAIRY</button>
         <button className="tag" onClick={() => handleTagClick("Beef")}>BEEF</button>
         <button className="tag" onClick={() => handleTagClick("Pork")}>PORK</button>
+        <button className="tag" onClick={() => handleTagClick("Turkey")}>TURKEY</button>
+        <button className="tag" onClick={() => handleTagClick("Soy")}>SOY</button>
         <button className="tag" onClick={() => handleTagClick("Seafood")}>SEAFOOD</button>
         <button className="tag" onClick={() => handleTagClick("Vegetable")}>VEGETABLE</button>
+        <button className="tag" onClick={() => handleTagClick("Baking")}>BAKING</button>
+        <button className="tag" onClick={() => handleTagClick("Dessert")}>DESSERT</button>
       </div>
     </main>
      

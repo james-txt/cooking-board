@@ -3,13 +3,19 @@ import { Helmet } from "react-helmet";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Recipe from "./components/Recipe";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import { MsalProvider } from '@azure/msal-react';
+import { PublicClientApplication } from '@azure/msal-browser';
+import Config from './components/Config';
 import { Routes, Route } from "react-router-dom";
 
+const msalInstance = new PublicClientApplication(Config);
 
 function App() {
   return (
+    <MsalProvider instance={msalInstance}>
     <div className="App">
       <Helmet>
         <html lang="en" dir="ltr"/>
@@ -28,9 +34,11 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/recipe/:id" element={<Recipe/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/about" element={<About/>} />
       </Routes>
       <Footer/>
     </div>
+    </MsalProvider>
   );
 }
 
