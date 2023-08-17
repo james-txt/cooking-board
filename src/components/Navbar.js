@@ -1,14 +1,31 @@
 import React from "react";
 import logo from './img/logo-sm1.png';
 import { useMsal } from '@azure/msal-react';
+import { useNavigate } from 'react-router-dom'; // Import useHistory
 
 function Navbar() {
   const { instance } = useMsal();
+  const navigate = useNavigate(); // Initialize useHistory
 
   const handleSignIn = async () => {
-    await instance.loginPopup();
-    // Handle successful login
+    try {
+      const response = await instance.loginPopup();
+      // Handle successful login
+
+      // Close the pop-up window
+      window.close();
+
+      // Send token to parent window
+      if (window.opener) {
+        window.opener.postMessage(response.accessToken, window.location.origin);
+      }
+      // Redirect to the homepage with the token
+      navigate('/', { token: response.accessToken });
+    } catch (error) {
+      console.error('Login error:', error);
+    }
   };
+
 
     return (
       <header className="sticky top-0 w-full z-auto">
