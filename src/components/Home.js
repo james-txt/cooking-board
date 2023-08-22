@@ -39,7 +39,7 @@ const Home = () => {
         <img src={foodTL} img alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
         <img src={foodTR} img alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
       </div>
-      <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-24 mb-6">
+      <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-32 mb-6">
         <h2 className="flex items-center text-2xl font-semibold">What are you craving?</h2>
       </div>
 
