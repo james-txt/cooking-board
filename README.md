@@ -8,7 +8,8 @@ Key Features:
 - Search for recipes by tags and categories.
 - View individual recipe details and images.
 - Enjoy a responsive and visually appealing user interface.
-- Technologies and Skills Demonstrated:
+
+Technologies and Skills Demonstrated:
 
 - Front-End Development: React.js, React Router, Tailwind CSS.
 - API Integration: Fetching recipe data from Azure Cosmos DB.
