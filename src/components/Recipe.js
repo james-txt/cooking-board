@@ -55,7 +55,14 @@ const Recipe = () => {
 			{
 				recipe && (
 				<>
-					<h1 className="text-3xl font-medium text-rose-500 pb-6">{recipe.name}</h1>
+					<div class="flex place-content-between">
+						<h1 className="text-3xl font-medium text-rose-500 pb-6">{recipe.name}</h1>
+						<a href="/" class="text-rose-500 mb-8 hover:text-rose-400">
+							<svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+							</svg>
+						</a>
+					</div>
 					<div className="flex flex-wrap gap-8 pb-8 items-center">
 						<img className="rounded w-auto"  src={recipe.picture} alt={recipe.name} />
 						<div className="shrink-0">
