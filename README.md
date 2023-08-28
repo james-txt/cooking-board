@@ -1,6 +1,6 @@
 Food Recipe Database Web Application
 
-Welcome to [Cooking Board](https://www.cookingboard.live/), a web application designed to help users explore and discover a variety of my own handcrafted delicious recipes. This project showcases my proficiency in modern web development tools and techniques.
+Welcome to [Cooking Board](https://www.cookingboard.live/), a web application designed to help users explore and discover a variety of my own handcrafted delicious recipes.
 
 Key Features:
 
@@ -12,7 +12,7 @@ Key Features:
 Technologies and Skills Demonstrated:
 
 - Front-End Development: React.js, React Router, Tailwind CSS.
-- API Integration: Fetching recipe data from Azure Cosmos DB.
+- API Integration: Fetching recipe data from Azure Cosmos DB through Azure Functions.
 - Version Control and Deployment: Git, Azure Static Web Apps.
 - Azure Services: Azure Cosmos DB, Azure Static Web Apps.
 - Error Handling and Debugging: Effective debugging and error handling techniques.
