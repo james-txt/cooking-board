@@ -70,7 +70,7 @@ const Recipe = () => {
 							<h2 className="text-2xl font-medium text-rose-500 pb-4">Ingredients :</h2>
 								{ingredients.length > 0 &&
 									ingredients.map((item) => 
-									<li className="md:text-base lg:text-lg pb-2">{item}</li>
+									<li className="md:text-base lg:text-lg text-stone-800 pb-2">{item}</li>
 									)}
 						</div>
 
@@ -78,7 +78,7 @@ const Recipe = () => {
 							<h2 className="text-2xl font-medium text-rose-500 pb-4">Instructions :</h2>
 								{instructions.length > 0 &&
 										instructions.map((item) => 
-										<p className="md:text-base lg:text-lg border shadow-sm shadow-stone-500 my-3 border-stone-300 p-3 text-ellipsis">{item}</p>
+										<p className="md:text-base lg:text-lg text-stone-800 border shadow-sm shadow-stone-500 my-3 border-stone-300 p-3 text-ellipsis">{item}</p>
 										)}
 						</div>
 							{/*<h2 className="text-2xl font-medium text-rose-500 pb-4">Tags :</h2>*/}

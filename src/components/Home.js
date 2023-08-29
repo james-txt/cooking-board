@@ -88,7 +88,7 @@ const Home = () => {
 
       {/* Tag collection */}
       <div id="tags" className="flex flex-nowrap justify-around mt-16">
-        <h2 className="flex place-items-center text-2xl font-semibold">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
+        <h2 className="flex place-items-center text-2xl font-semibold text-stone-800">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
       </div>
 
       <div id="tag-btn" className="flex flex-wrap flex-grow-0 gap-2 place-content-center md:mx-24 lg:mx-64 xl:mx-96 pt-6 px-4 pb-16">

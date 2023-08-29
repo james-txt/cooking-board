@@ -11,7 +11,7 @@ const Navbar = () => {
           <a href="/">
             <img src={logo} style={{ height: '50px', width: '52px' }} alt="Cooking Board Logo" loading="lazy" />
           </a>
-          <span className="block text-stone-50 self-center sm:pl-4 pl-2 sm:text-4xl text-2xl font-medium whitespace-nowrap">COOKING BOARD</span>
+          <span className="block text-stone-50 self-center sm:pl-4 pl-2 md:text-3xl min-[320px]:text-2xl font-medium whitespace-nowrap">COOKING BOARD</span>
         </div>
    	 </nav>
   	</header>

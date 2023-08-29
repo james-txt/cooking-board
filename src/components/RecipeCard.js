@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }) => {
       </Link>{" "}
       
       <div id="recipe-description" className="container md:h-1/2 h-fit w-full">
-       <p className="hover:text-rose-500 md:text-base lg:text-lg font-medium transition duration-300 ease-in-out break-words p-2">{recipe.name}</p>
+       <p className="hover:text-rose-500 text-stone-800 md:text-base lg:text-lg font-medium transition duration-300 ease-in-out break-words p-2">{recipe.name}</p>
       </div>
 
     </div>
