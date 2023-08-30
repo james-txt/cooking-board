@@ -1,20 +1,21 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import foodTL from './img/food-tl.png';
 import foodTR from './img/food-tr.png';
 import RecipeCard from "./RecipeCard";
 
-
 const Home = () => {
   const [query, setQuery] = useState([]);
-  const [recipies , setRecipies] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 12;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    /* search recipe on submit */
+    // search recipe on submit
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
       .then((res) => res.json())
-      .then((data) => setRecipies(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.log(error.message));
   };
 
@@ -22,16 +23,21 @@ const Home = () => {
     // Make an API call using the selected tag
     fetch(`https://searchcategorycookingboard.azurewebsites.net/api/searchcategory?tag=${tag}`)
       .then((res) => res.json())
-      .then((data) => setRecipies(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.log(error.message));
   };
 
   useEffect(() => {
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
-    .then((res) => res.json())
-    .then((data) => setRecipies(data))
-    .catch((error) => console.log(error.message));
-  }, [setRecipies, query]);
+      .then((res) => res.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.log(error.message));
+  }, [setRecipes, query]);
+
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const totalPages = Math.ceil(recipes.length / recipesPerPage);
 
   return (
     <main>
@@ -78,16 +84,33 @@ const Home = () => {
 
 
       {/* Recipe collection */}
-      <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 
-      xl:grid-cols-5 2xl:grid-cols-6">
-        {recipies.length > 0 
-          ? recipies.map((recipe, i) => <RecipeCard recipe={recipe} key={i}/> )
-        :""}
+      <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        {currentRecipes.length > 0
+          ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i}/>)
+          : ""}
       </div>
 
-
+      {/* Pagination buttons */}
+      {recipes.length > recipesPerPage && (
+        <div className="flex justify-evenly font-medium text-xl text-stone-800 mt-12">
+          <button
+            className=""
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <button
+            className=""
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
       {/* Tag collection */}
-      <div id="tags" className="flex flex-nowrap justify-around mt-16">
+      <div id="tags" className="flex flex-nowrap justify-around mt-12">
         <h2 className="flex place-items-center text-2xl font-semibold text-stone-800">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
       </div>
 

@@ -11,7 +11,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App overflow-hidden">
+    <div className="App">
       <Helmet>
         <html lang="en" dir="ltr"/>
         <meta charset="utf-8"/>
