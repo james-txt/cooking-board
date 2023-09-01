@@ -9,9 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      {/*<MsalProvider instance={pca}> */}
         <App />
-      {/*</MsalProvider>*/}
     </BrowserRouter>
   </React.StrictMode>
 );

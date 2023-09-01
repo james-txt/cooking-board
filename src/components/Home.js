@@ -12,7 +12,7 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // search recipe on submit
+    // Search recipe on submit
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
       .then((res) => res.json())
       .then((data) => setRecipes(data))
@@ -42,15 +42,15 @@ const Home = () => {
   return (
     <main>
       <div id="hero" className="flex justify-between z-0">
-        <img src={foodTL} img alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
-        <img src={foodTR} img alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
+        <img src={foodTL} alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
+        <img src={foodTR} alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
       </div>
       <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-32 mb-6">
         <h2 className="flex items-center text-2xl font-semibold">What are you craving?</h2>
       </div>
 
-
       {/* Search bar */}
+      
       <form id="searchbar" className="flex lg:w-2/5 w-3/4 md:w-1/2 items-center px-4 mb-12 relative mx-auto text-black" onSubmit={handleSubmit}>
         <input
           className="w-full border-2 border-stone-900 bg-white pr-10 rounded-lg text-md"
@@ -82,17 +82,16 @@ const Home = () => {
         </button>
       </form>
 
-
       {/* Recipe collection */}
+
       <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {currentRecipes.length > 0
-          ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i}/>)
-          : ""}
+        {currentRecipes.length > 0 ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i} />) : ""}
       </div>
 
       {/* Pagination buttons */}
+
       {recipes.length > recipesPerPage && (
-        <div className="flex justify-evenly font-medium text-xl text-stone-800 mt-12">
+        <div className="flex justify-evenly font-medium text-xln-stone-800 mt-12">
           <button
             className=""
             onClick={() => setCurrentPage(currentPage - 1)}
@@ -109,7 +108,9 @@ const Home = () => {
           </button>
         </div>
       )}
+
       {/* Tag collection */}
+
       <div id="tags" className="flex flex-nowrap justify-around mt-12">
         <h2 className="flex place-items-center text-2xl font-semibold text-stone-800">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
       </div>
@@ -127,8 +128,7 @@ const Home = () => {
         <button className="tag" onClick={() => handleTagClick("Dessert")}>DESSERT</button>
       </div>
     </main>
-     
-  )
+  );
 }
 
 export default Home;

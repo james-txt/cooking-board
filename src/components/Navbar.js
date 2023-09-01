@@ -1,6 +1,5 @@
 import React from "react";
 import logo from './img/logo-sm1.png';
-/*import { PublicClientApplication } from '@azure/msal-browser';*/
 
 
 const Navbar = () => {
@@ -8,14 +7,14 @@ const Navbar = () => {
     <header className="sticky top-0 w-full z-auto">
       <nav className="flex justify-between bg-stone-700 shadow-md shadow-stone-900 py-1.5 rounded-b-md">
         <div id="logo" className="flex flex-shrink-0 items-center sm:ml-4 ml-2 z-0">
-          <a href="/">
+          <a href="/" aria-label="Home">
             <img src={logo} style={{ height: '50px', width: '52px' }} alt="Cooking Board Logo" loading="lazy" />
           </a>
           <span className="block text-stone-50 self-center sm:pl-4 pl-2 md:text-3xl min-[320px]:text-2xl font-medium whitespace-nowrap">COOKING BOARD</span>
         </div>
-   	 </nav>
-  	</header>
-	)
+      </nav>
+    </header>
+  );
 }
 
-export default Navbar
+export default Navbar;
