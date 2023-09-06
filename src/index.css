@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .tag {
+      @apply bg-rose-500 text-stone-50 hover:bg-rose-400 text-xl font-semibold mr-2 px-2 rounded;
+  }
+  .recipe-card {
+      @apply md:h-[238px] md:w-[220px] w-3/4 mx-auto rounded overflow-hidden shadow-stone-300 shadow-md bg-white;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-stone-800 font-poppins;
+  }
+}
