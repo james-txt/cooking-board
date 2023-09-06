@@ -9,7 +9,7 @@
         @apply bg-rose-500 text-stone-50 hover:bg-rose-400 text-xl font-semibold mr-2 px-2 rounded;
     }
     .recipe-card {
-        @apply md:h-[238px] md:w-[220px] rounded overflow-hidden shadow-md bg-white;
+        @apply md:h-[238px] md:w-[220px] w-3/4 mx-auto rounded overflow-hidden shadow-stone-300 shadow-md bg-white;
     }
 }
 
