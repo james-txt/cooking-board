@@ -1,20 +1,21 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import foodTL from './img/food-tl.png';
 import foodTR from './img/food-tr.png';
 import RecipeCard from "./RecipeCard";
 
-
 const Home = () => {
   const [query, setQuery] = useState([]);
-  const [recipies , setRecipies] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 12;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    /* search recipe on submit */
+    // Search recipe on submit
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
       .then((res) => res.json())
-      .then((data) => setRecipies(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.log(error.message));
   };
 
@@ -22,29 +23,34 @@ const Home = () => {
     // Make an API call using the selected tag
     fetch(`https://searchcategorycookingboard.azurewebsites.net/api/searchcategory?tag=${tag}`)
       .then((res) => res.json())
-      .then((data) => setRecipies(data))
+      .then((data) => setRecipes(data))
       .catch((error) => console.log(error.message));
   };
 
   useEffect(() => {
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
-    .then((res) => res.json())
-    .then((data) => setRecipies(data))
-    .catch((error) => console.log(error.message));
-  }, [setRecipies, query]);
+      .then((res) => res.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.log(error.message));
+  }, [setRecipes, query]);
+
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const totalPages = Math.ceil(recipes.length / recipesPerPage);
 
   return (
     <main>
       <div id="hero" className="flex justify-between z-0">
-        <img src={foodTL} img alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
-        <img src={foodTR} img alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
+        <img src={foodTL} alt="foodL" className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
+        <img src={foodTR} alt="foodR" className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10" loading="lazy" />
       </div>
-      <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-24 mb-6">
+      <div className="flex flex-nowrap justify-around text-stone-800 sm:mt-16 mt-32 mb-6">
         <h2 className="flex items-center text-2xl font-semibold">What are you craving?</h2>
       </div>
 
-
       {/* Search bar */}
+      
       <form id="searchbar" className="flex lg:w-2/5 w-3/4 md:w-1/2 items-center px-4 mb-12 relative mx-auto text-black" onSubmit={handleSubmit}>
         <input
           className="w-full border-2 border-stone-900 bg-white pr-10 rounded-lg text-md"
@@ -76,19 +82,37 @@ const Home = () => {
         </button>
       </form>
 
-
       {/* Recipe collection */}
-      <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 
-      xl:grid-cols-5 2xl:grid-cols-6">
-        {recipies.length > 0 
-          ? recipies.map((recipe, i) => <RecipeCard recipe={recipe} key={i}/> )
-        :""}
+
+      <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        {currentRecipes.length > 0 ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i} />) : ""}
       </div>
 
+      {/* Pagination buttons */}
+
+      {recipes.length > recipesPerPage && (
+        <div className="flex justify-evenly font-medium text-xln-stone-800 mt-12">
+          <button
+            className=""
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <button
+            className=""
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
 
       {/* Tag collection */}
-      <div id="tags" className="flex flex-nowrap justify-around mt-16">
-        <h2 className="flex place-items-center text-2xl font-semibold">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
+
+      <div id="tags" className="flex flex-nowrap justify-around mt-12">
+        <h2 className="flex place-items-center text-2xl font-semibold text-stone-800">Or browse by&nbsp;<span className="tag hover:bg-rose-500">TAG</span>?</h2>
       </div>
 
       <div id="tag-btn" className="flex flex-wrap flex-grow-0 gap-2 place-content-center md:mx-24 lg:mx-64 xl:mx-96 pt-6 px-4 pb-16">
@@ -104,8 +128,7 @@ const Home = () => {
         <button className="tag" onClick={() => handleTagClick("Dessert")}>DESSERT</button>
       </div>
     </main>
-     
-  )
-}
+  );
+};
 
 export default Home;
