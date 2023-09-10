@@ -7,16 +7,15 @@ const Footer = () => {
       <div className="container mx-auto p-6">
         <hr className="my-6 border-gray-200 mx-auto" />
         <p className="text-sm text-center">
-          &copy; 2023 Cooking Board™
-          <nav className="flex flex-wrap gap-2 justify-center">
-            <Link to={`/about`} className="text-sm hover:underline">
-              About
-            </Link>
-            <Link to={`/contact`} className="text-sm hover:underline">
-              Contact
-            </Link>
-          </nav>
-        </p>
+          &copy; 2023 Cooking Board™</p>
+        <nav className="flex flex-wrap gap-2 justify-center">
+          <Link to={`/about`} className="text-sm hover:underline">
+            About
+          </Link>
+          <Link to={`/contact`} className="text-sm hover:underline">
+            Contact
+          </Link>
+        </nav>
       </div>
     </footer>
   );
