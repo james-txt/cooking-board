@@ -6,7 +6,9 @@ import Footer from "../Footer";
 describe("Footer component", () => {
   // Wrap the component with MemoryRouter to avoid any "You should not use <Link> outside a <Router>" warnings
   const renderWithRouter = (component) => {
-    return render(<MemoryRouter>{component}</MemoryRouter>);
+    return render(
+    <MemoryRouter>{component}</MemoryRouter>
+    );
   };
 
   it("should render the copyright text", () => {
