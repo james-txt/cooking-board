@@ -11,8 +11,7 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Search recipe on submit
+    // Make an API call to search for recipes by name
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
       .then((res) => res.json())
       .then((data) => setRecipes(data))
@@ -27,6 +26,7 @@ const Home = () => {
       .catch((error) => console.log(error.message));
   };
 
+    // Make an API call to load recipes based on the initial query
   useEffect(() => {
     fetch(`https://searchcookingboard.azurewebsites.net/api/search?name=${query}`)
       .then((res) => res.json())
@@ -85,8 +85,11 @@ const Home = () => {
       {/* Recipe collection */}
 
       <div id="recipe-grid" className="grid grid-cols-1 w-fit gap-8 mx-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-        {currentRecipes.length > 0 ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i} />) : ""}
+        {currentRecipes.length > 0
+          ? currentRecipes.map((recipe, i) => <RecipeCard recipe={recipe} key={i} />)
+          : ""}
       </div>
+
 
       {/* Pagination buttons */}
 

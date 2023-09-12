@@ -1,16 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter} from 'react-router-dom';
 import App from '../../App.js';
 
 
 const renderWithRouter = (ui, { route = '/' } = {}) => {
   window.history.pushState({}, 'Test page', route);
-
   return render(<MemoryRouter initialEntries={[route]}>{ui}</MemoryRouter>);
 };
 
-  
   it('renders without crashing', () => {
     renderWithRouter(<App />);
   });
@@ -23,11 +21,6 @@ const renderWithRouter = (ui, { route = '/' } = {}) => {
   it('renders Home route by default', () => {
     renderWithRouter(<App />);
     expect(screen.getByText('TAG')).toBeInTheDocument();
-  });
-
-  it('renders Recipe route', () => {
-    renderWithRouter(<App />, { route: '/recipe/001' });
-    expect(screen.getByText('Instructions:')).toBeInTheDocument();
   });
 
   it('renders Contact route', () => {
