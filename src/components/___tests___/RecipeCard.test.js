@@ -10,7 +10,7 @@ describe('RecipeCard', () => {
   name: 'Garlic Chili Chicken Wings', 
   picture: "https://recipepictures.blob.core.windows.net/recipepictures/001GarlicChiliChickenWings.jpg" };
 
-beforeEach(() => {
+beforeEach('RecipeCard component renders without errors', () => {
   render( 
     <MemoryRouter> 
       <RecipeCard recipe={mockrecipe} /> 

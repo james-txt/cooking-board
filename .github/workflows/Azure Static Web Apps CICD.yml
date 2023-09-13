@@ -26,7 +26,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run test
+      - run: npm test -- About.test.js
+      - run: npm test -- App.test.js
+      - run: npm test -- Contact.test.js
+      - run: npm test -- Footer.test.js
+      - run: npm test -- Home.test.js
+      - run: npm test -- Navbar.test.js
+      - run: npm test -- Recipe.test.js
+      - run: npm test -- RecipeCard.test.js
 
   build_and_deploy_job:
     needs: test # Job only runs after the test job passes

@@ -3,8 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom"; // Provides a mock router context
 import Footer from "../Footer";
 
-describe("Footer component", () => {
-  // Wrap the component with MemoryRouter to avoid any "You should not use <Link> outside a <Router>" warnings
+describe("Footer component renders without errors", () => {
   const renderWithRouter = (component) => {
     return render(
     <MemoryRouter>{component}</MemoryRouter>
