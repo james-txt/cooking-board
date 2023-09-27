@@ -50,18 +50,18 @@ const Recipe = () => {
 	}
 
 	return (
-		<div className="flex justify-center">
+		<div className="flex items-center justify-center">
 			<div className="rounded border-stone-200 border shadow-md bg-white max-lg:max-w-2xl lg:max-w-5xl mx-4 px-8 pt-8 my-12">
 				{recipe && (
 					<>
 						<header>
-							<div className="flex justify-between">
-								<h1 className="text-3xl font-medium text-rose-500 pb-6">{recipe.name}</h1>
-								<a href="/" className="text-rose-500 mb-8 hover:text-rose-400">
-									<svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-										<path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+							<div className="flex">
+								<a href="/" className="text-rose-500 mb-8 hover:text-rose-400 mr-8">
+									<svg className="w-7 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 9">
+										<path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
 									</svg>
 								</a>
+								<h1 className="text-3xl font-medium text-rose-500 pb-6">{recipe.name}</h1>
 							</div>
 						</header>
 	
