@@ -13,9 +13,10 @@ Technologies and Skills Demonstrated:
 
 - Front-End Development: React.js, React Router, Tailwind CSS.
 - API Integration: Fetching recipe data from Azure Cosmos DB through Azure Functions.
-- Version Control and Deployment: Git, Azure Static Web Apps.
+- Version Control and Deployment: Automated testing, Git, Azure Static Web Apps.
 - Azure Services: Azure Cosmos DB, Azure Static Web Apps, Azure Functions, App Service Plan, Application Insights.
 - Error Handling and Debugging: Effective debugging and error handling techniques.
+- Test Driven Development (TDD): Unit tests for rendering, image visibility, link functionality, and mock data validation
 - Documentation and Collaboration: Well-documented code and collaboration through GitHub.
 - Web Design and User Experience: Responsive and visually pleasing UI design.
 - Package Management: npm for managing project dependencies.
