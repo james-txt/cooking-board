@@ -1,6 +1,6 @@
 Food Recipe Database Web Application
 
-Welcome to [Cooking Board](https://www.cookingboard.live/), a web application designed to help users explore and discover a variety of my own handcrafted delicious recipes.
+Welcome to [Cooking Board](https://cooking-board.vercel.app/), a web application designed to help users explore and discover a variety of my own handcrafted delicious recipes.
 
 Key Features:
 
