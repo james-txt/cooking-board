@@ -7,7 +7,7 @@ import Recipe from "./components/Recipe";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import About from "./components/About";
-import Analytics from "@vercel/analytics";
+import Analytics from "@vercel/analytics/dist/react";
 
 
 function App() {
