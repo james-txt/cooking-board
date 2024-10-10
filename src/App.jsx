@@ -7,7 +7,7 @@ import Recipe from "./components/Recipe";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import About from "./components/About";
-
+import Analytics from "@vercel/analytics";
 
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
+      <Analytics />
     </>
   );
 };
