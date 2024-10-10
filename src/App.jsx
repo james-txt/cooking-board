@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Analytics } from "@vercel/analytics/react"
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -31,7 +30,6 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
-      <Analytics />
     </>
   );
 };
