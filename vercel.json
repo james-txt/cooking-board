@@ -1,4 +1,9 @@
 {
+    "version": 2,
+    "cleanUrls": true,
+    "build": {
+      "cache": "no-store"
+    },
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]
