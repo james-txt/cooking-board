@@ -134,7 +134,7 @@ const Home = () => {
             onChange={handleInputChange}
             onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
           />
-          <button type="submit" className="absolute right-0 bottom-4 items-center mr-1">
+          <button type="submit" className="absolute -right-0.5 bottom-3.5 items-center mr-1">
             <svg
               className="text-rose-500 h-4 w-10 fill-current"
               xmlns="http://www.w3.org/2000/svg"
