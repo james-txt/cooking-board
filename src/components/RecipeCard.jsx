@@ -5,12 +5,16 @@ import { motion } from "framer-motion";
 const RecipeCard = ({ recipe }) => {
   const isLongTitle = recipe.name.length > 20;
 
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       className="recipe-card bg-white rounded-lg shadow-md overflow-hidden"
     >
-      <Link to={`/recipe/${recipe.id}`} className="block">
+      <Link to={`/recipe/${recipe.id}`} className="block" onClick={handleClick}>
         <div className="relative">
           <img 
             src={recipe.picture} 

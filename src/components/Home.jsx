@@ -94,20 +94,52 @@ const Home = () => {
     transition: { type: "spring", stiffness: 100 }
   };
 
+  const slideFromTopLeft = {
+    initial: { x: -200, y: -200, opacity: 0 },
+    animate: { 
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideFromTopRight = {
+    initial: { x: 200, y: -200, opacity: 0 },
+    animate: { 
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <motion.main>
       <div id="hero" className="flex justify-between -z-10">
-        <img
+        <motion.img
           src={foodTL}
           alt="foodL"
           className="absolute -left-0 top-12 object-contain w-1/3 md:max-w-sm flex -z-10"
           loading="lazy"
+          variants={slideFromTopLeft}
+          initial="initial"
+          animate="animate"
         />
-        <img
+        <motion.img
           src={foodTR}
           alt="foodR"
           className="absolute -right-0 top-6 object-contain w-1/3 md:max-w-sm flex -z-10"
           loading="lazy"
+          variants={slideFromTopRight}
+          initial="initial"
+          animate="animate"
         />
       </div>
 
@@ -256,7 +288,8 @@ const Home = () => {
         variants={{
           show: {
             transition: {
-              staggerChildren: 0.08
+              staggerChildren: 0.08,
+              delayChildren: 0.4
             }
           }
         }}
