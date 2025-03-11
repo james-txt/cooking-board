@@ -4,7 +4,7 @@ import logo from './img/logo-sm1.png';
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 w-full z-auto">
+    <header className="sticky top-0 w-full z-50">
       <nav className="flex justify-between bg-stone-700 shadow-md shadow-stone-900 py-1.5 rounded-b-md">
         <div id="logo" className="flex flex-shrink-0 items-center sm:ml-4 ml-2 z-0">
           <a href="/" aria-label="Home">
