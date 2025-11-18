@@ -8,7 +8,7 @@ describe('RecipeCard', () => {
   const mockrecipe = 
   { id: '001', 
   name: 'Garlic Chili Chicken Wings', 
-  picture: "https://recipepictures.blob.core.windows.net/recipepictures/001GarlicChiliChickenWings.jpg" };
+  picture: "https://lfsfxpxbpw0ubnxf.public.blob.vercel-storage.com/001GarlicChiliChickenWings.jpg" };
 
 test('displays recipe name', () => { 
   render( 

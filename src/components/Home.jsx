@@ -131,6 +131,7 @@ const Home = () => {
           variants={slideFromTopLeft}
           initial="initial"
           animate="animate"
+          
         />
         <motion.img
           src={foodTR}
