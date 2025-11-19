@@ -13,7 +13,7 @@ const Recipe = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch(`https://searchcookingboard.azurewebsites.net/api/recipes?id=${id}`);
+        const response = await fetch(`/api/search?id=${id}`);
         if (!response.ok) throw new Error('Recipe not found');
         const data = await response.json();
         
