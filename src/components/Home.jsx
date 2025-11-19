@@ -4,7 +4,7 @@ import foodTL from "./img/food-tl.png";
 import foodTR from "./img/food-tr.png";
 import RecipeCard from "./RecipeCard";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { debounce } from "./utils/debounce";
+import { debounce } from "../utils/debounce";
 
 const Home = () => {
   const [query, setQuery] = useState("");
