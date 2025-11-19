@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import foodTL from "./img/food-tl.png";
 import foodTR from "./img/food-tr.png";
@@ -29,7 +29,6 @@ const Home = () => {
     }
   };
 
-
   const handleSubmit = async (e, overrideQuery) => {
     if (e?.preventDefault) e.preventDefault();
 
@@ -46,19 +45,26 @@ const Home = () => {
     setTimeout(() => setIsLoading(false), 200);
   };
 
-  const handleInputChange = debounce(async (e) => {
-    const value = e.target.value;
-    setQuery(value);
+  const suggestionWorker = useRef(null);
 
-    if (value.length > 1) {
-      const data = await fetchRecipes(`/api/search?query=${encodeURIComponent(value)}`);
-      setSuggestions(data.slice(0, 5).map((r) => r.name));
-      setShowSuggestions(true);
-    } else {
-      setSuggestions([]);
-      setShowSuggestions(false);
-    }
-  }, 300);
+  if (!suggestionWorker.current) {
+    suggestionWorker.current = debounce(async (value) => {
+      if (value.length > 1) {
+        const data = await fetchRecipes(`/api/search?query=${encodeURIComponent(value)}`);
+        setSuggestions(data.slice(0, 5).map((r) => r.name));
+        setShowSuggestions(true);
+      } else {
+        setSuggestions([]);
+        setShowSuggestions(false);
+      }
+    }, 300);
+  }
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setQuery(value);
+    suggestionWorker.current(value);
+  };
 
   const handleTagClick = async (tag) => {
     setHasSearched(true);
